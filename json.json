@@ -5,15 +5,10 @@
       "_category": "common", 
       "to": {"#text": "json"},
       "from": {"#text": "xml"},
-      "heading": {"#text": "Reminder"},
+      "heading": {"#text": "Example"},
       "body": {
         "h1": {"#text": "Title"},
-        "text": {"#text": "Wololololololololo"}
-      },
-      "user": {
-        "name": {"_type": "simple", "#text": "Javi"},
-        "age": {"#text": "25"},
-        "job": {"#text": "dev"}
+        "text": {"_type": "short", "#text": "Lorem ipsum"}
       }
     },
     "note": {
@@ -21,15 +16,10 @@
       "_category": "important", 
       "to": {"#text": "json2"},
       "from": {"#text": "xml2"},
-      "heading": {"#text": "Reminder2"},
+      "heading": {"#text": "Example2"},
       "body": {
         "h1": {"#text": "Title2"},
-        "text": {"#text": "Wololololololololo2"}
-      },
-      "user": {
-        "name": {"#text": "Javi2"},
-        "age": {"#text": "252"},
-        "job": {"#text": "dev2"}
+        "text": {"_type": "description", "#text": "Dolor sit amet"}
       }
     }
   }
