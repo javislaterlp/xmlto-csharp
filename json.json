@@ -1,0 +1,37 @@
+{
+  "notes": {
+    "note": {
+      "_id": "1", 
+      "_category": "common", 
+      "to": {"#text": "json"},
+      "from": {"#text": "xml"},
+      "heading": {"#text": "Reminder"},
+      "body": {
+        "h1": {"#text": "Title"},
+        "text": {"#text": "Wololololololololo"}
+      },
+      "user": {
+        "name": {"_type": "simple", "#text": "Javi"},
+        "age": {"#text": "25"},
+        "job": {"#text": "dev"}
+      }
+    },
+    "note": {
+      "_id": "2", 
+      "_category": "important", 
+      "to": {"#text": "json2"},
+      "from": {"#text": "xml2"},
+      "heading": {"#text": "Reminder2"},
+      "body": {
+        "h1": {"#text": "Title2"},
+        "text": {"#text": "Wololololololololo2"}
+      },
+      "user": {
+        "name": {"#text": "Javi2"},
+        "age": {"#text": "252"},
+        "job": {"#text": "dev2"}
+      }
+    }
+  }
+}
+

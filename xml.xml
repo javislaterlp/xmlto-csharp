@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <notes>
+        <note id="1" category="common">
+            <to>json</to>
+            <from>xml</from>
+            <heading>Reminder</heading>
+            <body>
+                <h1>Title</h1>
+                <text>Wololololololololo</text>
+            </body>
+            <user>
+                <name type="simple">Javi</name>
+                <age>25</age>
+                <job>dev</job>
+            </user>
+        </note>
+        <note id="2" category="important">
+            <to>json2</to>
+            <from>xml2</from>
+            <heading>Reminder2</heading>
+            <body>
+                <h1>Title2</h1>
+                <text>Wololololololololo2</text>
+            </body>
+            <user>
+                <name>Javi2</name>
+                <age>252</age>
+                <job>dev2</job>
+            </user>
+        </note>
+    </notes>
