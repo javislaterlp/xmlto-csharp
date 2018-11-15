@@ -3,23 +3,45 @@
     "note": {
       "_id": "1", 
       "_category": "common", 
-      "to": {"#text": "json"},
-      "from": {"#text": "xml"},
-      "heading": {"#text": "Example"},
+      "to": {
+        "content": "json"
+      },
+      "from": {
+        "content": "xml"
+      },
+      "heading": {
+        "content": "Example"
+      },
       "body": {
-        "h1": {"#text": "Title"},
-        "text": {"_type": "short", "#text": "Lorem ipsum"}
+        "h1": {
+          "content": "Title"
+        },
+        "text": {
+          "_type": "short", 
+          "content": "Lorem ipsum"
+        }
       }
     },
     "note": {
       "_id": "2", 
       "_category": "important", 
-      "to": {"#text": "json2"},
-      "from": {"#text": "xml2"},
-      "heading": {"#text": "Example2"},
+      "to": {
+        "content": "json2"
+      },
+      "from": {
+        "content": "xml2"
+      },
+      "heading": {
+        "content": "Example2"
+      },
       "body": {
-        "h1": {"#text": "Title2"},
-        "text": {"_type": "description", "#text": "Dolor sit amet"}
+        "h1": {
+          "content": "Title2"
+        },
+        "text": {
+          "_type": "description", 
+          "content": "Dolor sit amet"
+        }
       }
     }
   }
