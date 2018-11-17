@@ -10,7 +10,7 @@ namespace xmlto
 
         public static String buildYml(XmlDocument xml) 
         {
-            StringBuilder doc = new System.Text.StringBuilder();
+            StringBuilder doc = new StringBuilder();
 
             foreach (XmlNode node in xml.ChildNodes)
             {
@@ -35,18 +35,21 @@ namespace xmlto
             bool isText = node.FirstChild.NodeType.Equals(XmlNodeType.Text);
 
             doc.Append(tabs);
-            doc.AppendFormat("{0}: \n", node.Name);
+            doc.AppendFormat("{0}:", node.Name);
+            doc.AppendLine();
 
             foreach (XmlAttribute att in node.Attributes)
             {
                 doc.Append(tabsNested);
-                doc.AppendFormat("_{0}: {1}\n", att.Name, att.Value);
+                doc.AppendFormat("_{0}: {1}", att.Name, att.Value);
+                doc.AppendLine();
             }
 
             if (isText) 
             {
                 doc.Append(tabsNested);
-                doc.AppendFormat("content: {0}\n", node.InnerText);
+                doc.AppendFormat("content: {0}", node.InnerText);
+                doc.AppendLine();
             }
             else 
             {

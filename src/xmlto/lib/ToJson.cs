@@ -10,7 +10,7 @@ namespace xmlto
 
         public static String buildJson(XmlDocument xml) 
         {
-            StringBuilder doc = new System.Text.StringBuilder();
+            StringBuilder doc = new StringBuilder();
             doc.AppendLine("{");
 
             foreach (XmlNode node in xml.ChildNodes)
@@ -43,13 +43,15 @@ namespace xmlto
             foreach (XmlAttribute att in node.Attributes)
             {
                 doc.Append(tabsNested);
-                doc.AppendFormat("\"_{0}\": \"{1}\",\n", att.Name, att.Value);
+                doc.AppendFormat("\"_{0}\": \"{1}\",", att.Name, att.Value);
+                doc.AppendLine();
             }
 
             if (isText) 
             {
                 doc.Append(tabsNested);
-                doc.AppendFormat("\"content\": \"{0}\"\n", node.InnerText);
+                doc.AppendFormat("\"content\": \"{0}\"", node.InnerText);
+                doc.AppendLine();
             }
             else 
             {
