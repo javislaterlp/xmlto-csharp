@@ -3,25 +3,27 @@ using System.Xml;
 using System.Text;
 using System.IO;
 
-namespace xmltojson 
+namespace xmlto
 {
-    class ToYml 
+    class ToJson 
     {
 
-        public static String buildYml(XmlDocument xml) 
+        public static String buildJson(XmlDocument xml) 
         {
             StringBuilder doc = new System.Text.StringBuilder();
+            doc.AppendLine("{");
 
             foreach (XmlNode node in xml.ChildNodes)
             {
                 if (!node.NodeType.Equals(XmlNodeType.XmlDeclaration))
                 {
                     // number of tabs to insert
-                    int count = 0;
+                    int count = 2;
                     recursiveXml(doc, node, count);
                 }
             }
 
+            doc.AppendLine("}");
             Console.WriteLine(doc);
 
             return doc.ToString();
@@ -35,18 +37,19 @@ namespace xmltojson
             bool isText = node.FirstChild.NodeType.Equals(XmlNodeType.Text);
 
             doc.Append(tabs);
-            doc.AppendFormat("{0}: \n", node.Name);
+            doc.AppendFormat("\"{0}\": ", node.Name);
+            doc.AppendLine("{");
 
             foreach (XmlAttribute att in node.Attributes)
             {
                 doc.Append(tabsNested);
-                doc.AppendFormat("_{0}: {1}\n", att.Name, att.Value);
+                doc.AppendFormat("\"_{0}\": \"{1}\",\n", att.Name, att.Value);
             }
 
             if (isText) 
             {
                 doc.Append(tabsNested);
-                doc.AppendFormat("content: {0}\n", node.InnerText);
+                doc.AppendFormat("\"content\": \"{0}\"\n", node.InnerText);
             }
             else 
             {
@@ -55,6 +58,9 @@ namespace xmltojson
                     recursiveXml(doc, child, count + 2);
                 }
             }
+            
+            doc.Append(tabs);
+            doc.AppendLine(node.NextSibling != null ? "}," : "}");
         }
 
     }
