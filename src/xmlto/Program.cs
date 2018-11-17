@@ -11,19 +11,33 @@ namespace xmlto
         {
             try 
             {   
-                // if no second argument is supplied, input name will be taken
-                var input = args[0];
-                var output = args.Length > 1 ? args[1] : input.Remove(input.Length - 4) + ".json";
+                // if no second file is supplied, input name will be taken
+                var to = args[0];
+                var input = args[1];
+                var output = args.Length > 2 ? args[2] : input.Remove(input.Length - 4) + "." + to;
 
                 // read xml source
                 XmlDocument xml = new XmlDocument();  
-                xml.Load(args[0]);
+                xml.Load(input);
 
-                String content = ToJson.buildJson(xml);
+                String content = "";
 
-                // write json response
-                using (StreamWriter json = new StreamWriter(output)) {
-                    json.WriteLine(content);
+                switch (to)
+                {
+                    case "json":
+                        content = ToJson.buildJson(xml);
+                        break;
+                    case "yml":
+                        content = ToYml.buildYml(xml);
+                        break;
+                    default:
+                        Console.WriteLine("Conversion not supported.");
+                        return;
+                }
+
+                // write response
+                using (StreamWriter response = new StreamWriter(output)) {
+                    response.WriteLine(content);
                 }
             }
             catch (IndexOutOfRangeException e) 

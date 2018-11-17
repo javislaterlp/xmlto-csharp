@@ -1,8 +1,8 @@
 {
   "notes": {
     "note": {
-      "_id": "1", 
-      "_category": "common", 
+      "_id": "1",
+      "_category": "common",
       "to": {
         "content": "json"
       },
@@ -17,14 +17,14 @@
           "content": "Title"
         },
         "text": {
-          "_type": "short", 
+          "_type": "short",
           "content": "Lorem ipsum"
         }
       }
     },
     "note": {
-      "_id": "2", 
-      "_category": "important", 
+      "_id": "2",
+      "_category": "important",
       "to": {
         "content": "json2"
       },
@@ -39,7 +39,7 @@
           "content": "Title2"
         },
         "text": {
-          "_type": "description", 
+          "_type": "description",
           "content": "Dolor sit amet"
         }
       }
