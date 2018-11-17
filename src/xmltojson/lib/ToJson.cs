@@ -37,27 +37,19 @@ namespace xmltojson
             bool isText = node.FirstChild.NodeType.Equals(XmlNodeType.Text);
 
             doc.Append(tabs);
-            doc.Append("\"");
-            doc.Append(node.Name);
-            doc.Append("\"");
-            doc.AppendLine(": {");
+            doc.AppendFormat("\"{0}\": ", node.Name);
+            doc.AppendLine("{");
 
             foreach (XmlAttribute att in node.Attributes)
             {
                 doc.Append(tabsNested);
-                doc.Append("\"_");
-                doc.Append(att.Name);
-                doc.Append("\": \"");
-                doc.Append(att.Value);
-                doc.AppendLine("\", ");
+                doc.AppendFormat("\"_{0}\": \"{1}\",\n", att.Name, att.Value);
             }
 
             if (isText) 
             {
                 doc.Append(tabsNested);
-                doc.Append("\"content\": \"");
-                doc.Append(node.InnerText);
-                doc.AppendLine("\"");
+                doc.AppendFormat("\"content\": \"{0}\"\n", node.InnerText);
             }
             else 
             {
